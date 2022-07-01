@@ -25,3 +25,10 @@ export function search(val) {
     payLoad: val,
   };
 }
+
+export function deleteCompeleted(list) {
+  return {
+    type: 'deleteCompeleted',
+    payLoad: list,
+  };
+}

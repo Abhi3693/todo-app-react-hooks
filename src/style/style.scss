@@ -65,9 +65,9 @@ body {
   font-size: 1.2rem;
 }
 .todo-search {
-  float: right;
   margin: 1rem;
   margin-right: 3rem;
+  margin-left: 75%;
 }
 .todo-search {
   padding: 5px 10px;
@@ -75,18 +75,55 @@ body {
   border-radius: 5px;
 }
 .delete-todo {
-  display: block;
-  width: 1.5%;
-  height: 16px;
+  display: flex;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  cursor: pointer;
 }
 .todo-text {
   width: 80%;
+}
+.tag-holder {
+  width: fit-content;
+  margin: 1rem auto;
 }
 .todo-checkbox {
   width: 10%;
 }
 .single-todo {
   gap: 0.5rem;
+}
+.tag-holder {
+  display: flex;
+  gap: 1rem;
+}
+.tag {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: gray;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.active {
+  background-color: green;
+}
+.input-form {
+  display: flex;
+  gap: 1rem;
+}
+.submit {
+  background-color: green;
+  padding: 0px 20px;
+  margin: 1rem auto 0 auto;
+  border: none;
+  color: white;
+  border: 2px solid lightgray;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 600px) {
@@ -109,9 +146,11 @@ body {
     margin-top: 4rem;
   }
   .delete-todo {
-    display: block;
-    width: 4%;
-    height: 16px;
+    display: flex;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
   }
   .todo-text {
     width: 80%;

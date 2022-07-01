@@ -3,22 +3,35 @@ import { connect } from 'react-redux';
 
 import Todo from './Todo';
 
-class TodoList extends React.Component {
-  render() {
-    let list = this.props.state.todos;
-    if (this.props.state.searchValue) {
-      list = this.props.state.todos.filter((elm) => {
-        return elm.name.startsWith(this.props.state.searchValue);
+function TodoList(props) {
+  function handleList(list) {
+    let val;
+    if (props.activeTag === 'all') {
+      val = list;
+    } else if (props.activeTag === 'active') {
+      val = list.filter((todo) => !todo.isDone);
+    } else {
+      val = list.filter((todo) => todo.isDone);
+    }
+
+    if (props.state.searchValue) {
+      val = val.filter((elm) => {
+        return elm.name.startsWith(props.state.searchValue);
       });
     }
-    return (
-      <ul className='todo-list'>
-        {list.map((todo, i) => {
-          return <Todo key={i} todo={todo} index={i} />;
-        })}
-      </ul>
-    );
+
+    return val;
   }
+
+  let finalList = handleList(props.state.todos);
+
+  return (
+    <ul className='todo-list'>
+      {finalList.map((todo, i) => {
+        return <Todo key={i} todo={todo} index={i} />;
+      })}
+    </ul>
+  );
 }
 
 function mapStateToProps(state) {

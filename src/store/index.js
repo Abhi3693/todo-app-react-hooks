@@ -14,6 +14,9 @@ function todoReducer(
     case 'delete':
       state.todos = state.todos.filter((elm) => elm.name !== action.payLoad);
       break;
+    case 'deleteCompeleted':
+      state.todos = action.payLoad;
+      break;
     case 'toggle':
       state.todos = state.todos.map((elm) => {
         if (elm.name === action.payLoad) {
